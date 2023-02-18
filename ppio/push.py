@@ -3,7 +3,7 @@ Controls all push functions to the database
 Isaac
 """
 from pymongo import MongoClient
-from basic import get_collection
+from .basic import get_collection
 import certifi
 import time
 
@@ -16,7 +16,8 @@ def push_to_db(user):
 	# Pushes the user to the database with a unique id
 	user["_id"] = str(time.time())
 	get_collection().insert_one(user)
-	with open("../resources/id.txt", "w") as w:
+	# This is a relative path and may cause issues later
+	with open("resources/id.txt", "w") as w:
 		w.write(user["_id"])
 	return user
 	
