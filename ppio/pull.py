@@ -11,7 +11,7 @@ def login(username, password):
 	else:
 		with open("resources/id.txt", "w") as w:
 			w.write(user["_id"])
-			return True
+		return True
 
 def have_liked_by():
 	with open("resources/id.txt", "r") as r:
