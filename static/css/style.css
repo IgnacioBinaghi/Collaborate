@@ -1,0 +1,62 @@
+@font-face {
+  font-family: Alegreya;
+  src: url(../fonts/Alegreya-Medium.ttf);
+}
+
+@font-face {
+  font-family: Alegreya-thin;
+  src: url(../fonts/Alegreya-regular.ttf);
+}
+
+
+body{
+	background-color: #E8D2AE;
+}
+
+.title{
+	color: #CB8589;
+	font-family: Alegreya-thin;
+	  position: absolute;
+	  left: 50%;
+	  top: 45%;
+	  -webkit-transform: translate(-50%, -50%);
+	  transform: translate(-50%, -50%);
+    font-size: 200%;
+ }
+
+ .text{
+ 	color: #9BA382;
+	font-family: Alegreya-thin;
+	  position: absolute;
+	  left: 50%;
+	  top: 50%;
+	  -webkit-transform: translate(-50%, -50%);
+	  transform: translate(-50%, -50%);
+    font-size: 80%;
+ }
+
+.toolbar{
+	background-color: #B1BA95;
+	position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100% !important;
+}
+
+
+.toolbar a{
+	color: #305252;
+	transition: .5s;
+	float: right;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+	font-family: Alegreya;
+}
+
+.toolbar a:hover{
+	color: white;
+	transition: .5s;
+}
