@@ -27,7 +27,7 @@ while (response != "done"):
     response = input("Enter Topics: (type 'done' when done): ")
     if(response != "done"):
         topics.append(response)
-bio = input("Enter Bio")
+bio = input("Enter Bio: ")
 username = input("Enter Username: ")
 password = input("Enter Pass: ")
 likedby = []
