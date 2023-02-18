@@ -15,6 +15,8 @@ def current_user():
 def push_to_db(user):
 	# Pushes the user to the database with a unique id
 	user["_id"] = str(time.time())
+	user["matches"] = []
+	user["likedby"] = []
 	get_collection().insert_one(user)
 	# This is a relative path and may cause issues later
 	with open("resources/id.txt", "w") as w:
