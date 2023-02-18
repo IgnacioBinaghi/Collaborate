@@ -28,22 +28,3 @@ def push_like_to(user_id):
 	query = {"_id": user_id}
 	newvalue = {"$push": {"likedby": current_user()}}
 	get_collection().update_one(query, newvalue)
-
-"""
-user_template = {
-  "_id" : "1",
-  "name" : "John Doe",
-  "age" : "19",
-  "year" : "2",
-  "school" : "NYU",
-  "socials" : ["twitter.com"],
-  "Area" : ["Brooklyn", "Manhattan"],
-  "courses": "CSO",
-  "topics": "Calculus",
-  "bio": "sex? pls",
-  "user": "username",
-  "pass": "password",
-  "likedby": ["you"]
-}
-get_collection().insert_one(user_template)
-"""
