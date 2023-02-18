@@ -26,9 +26,6 @@ def push_like_to(user_id):
 	newvalue = {"$push": {"likedby": current_user()}}
 	get_collection().update_one(query, newvalue)
 
-push_to_db({"ignacio": "binaghi"})
-push_like_to("1")
-
 """
 user_template = {
   "_id" : "1",
