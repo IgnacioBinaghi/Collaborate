@@ -17,3 +17,4 @@ def get_collection():
    dbname = get_database()
    collection_name = dbname["users"]
    return collection_name
+
