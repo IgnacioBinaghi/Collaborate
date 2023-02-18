@@ -1,32 +1,32 @@
 from pymongo import MongoClient
-import basic
+from .basic import get_collection
 import certifi
 
 
-db = basic.get_database()
-collection = basic.get_collection()
+def have_liked_by():
+	with open("resources/id.txt", "r") as r:
+		userID = r.readline()
+	user = get_collection().find_one({"_id" : userID})
+	userLikedByList = user.get("likedby")
+	if (len(userLikedByList) == 0) :
+		return False
+	else :
+		return True
 
-
-def haveLikedBy(userID):
-    user = collection.find_one({"_id" : str(userID)})
-    userLikedByList = user.get("likedby")
-    if (len(userLikedByList) == 0) :
-        return False
-    else :
-        return True
-
-def pullLikedBy(userID):
-    user = collection.find_one({"_id" : str(userID)})
-    userLikedByList = user.get("likedby")
-    lastElement = userLikedByList[len(userLikedByList)-1]
-    userLikedByList.pop()
-    print(userLikedByList)
-    print(type(userLikedByList))
-    myquery = {"_id" : str(userID)}
-    newvalues = { "$set" : {"likedby" : userLikedByList}}
-    collection.update_one(myquery, newvalues)
-    # lastElement = 
-    return lastElement
+def pull_liked_by():
+	with open("resources/id.txt", "r") as r:
+		userID = r.readline()
+	user = get_collection().find_one({"_id" : str(userID)})
+	userLikedByList = user.get("likedby")
+	lastElement = userLikedByList[-1]
+	userLikedByList.pop()
+	print(userLikedByList)
+	print(type(userLikedByList))
+	myquery = {"_id" : str(userID)}
+	newvalues = { "$set" : {"likedby" : userLikedByList}}
+	collection.update_one(myquery, newvalues)
+	# lastElement = 
+	return lastElement
 
 
 
