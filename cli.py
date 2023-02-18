@@ -1,4 +1,4 @@
-import ppio
+from ppio import push
 
 name = input("Enter Name: ")
 age = input("Enter Age: ")
@@ -47,4 +47,4 @@ temp_user = {
             "likedby": likedby
 }
 
-ppio.push.push_to_db(temp_user)
+push.push_to_db(temp_user)
