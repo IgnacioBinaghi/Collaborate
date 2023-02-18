@@ -1,7 +1,17 @@
-from pymongo import MongoClient
-from .basic import get_collection
-import certifi
 
+# Controlls all pull functions in the database
+from .basic import get_collection
+
+def login(username, password):
+	user = get_collection().find_one({"user": username})
+	if (user == None):
+		return False
+	if (user["pass"] != password):	
+		return False
+	else:
+		with open("resources/id.txt", "w") as w:
+			w.write(user["_id"])
+			return True
 
 def have_liked_by():
 	with open("resources/id.txt", "r") as r:
@@ -27,10 +37,3 @@ def pull_liked_by():
 	collection.update_one(myquery, newvalues)
 	# lastElement = 
 	return lastElement
-
-
-
-
-
-# newvalues = { "$set": { "address": "Canyon 123" } }
-# mycol.update_one(myquery, newvalues)
