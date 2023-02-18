@@ -1,3 +1,2 @@
-<div id="header" align="center">
-  <img src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="100"/>
-</div>
+Program produced in HackNYU by Sho Ishizaki, Isaac Fisher, Ignacio Binaghi, and Kyle Wang.
+A study buddy matching application that utilizes MongoDB, Python, and Flask. 
