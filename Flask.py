@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 from ppio.push import push_to_db
+from ppio.pull import login
+
 
 app = Flask(__name__)
 
@@ -15,6 +17,10 @@ def signin():
        username = request.form.get("user")
 
        password = request.form.get("pass")
+
+
+
+       print(login(username, password))
 
 
     return render_template('sign-in.html')
