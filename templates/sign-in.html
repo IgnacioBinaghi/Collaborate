@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/sign-in-style.css') }}"/>
+	<title>sign in</title>
+</head>
+<body>
+
+<div class="box">
+<form class="signin" method="post" action="{{ url_for('signin')}}">
+  	<label for="User">Username</label><br>
+  	<input type="text" id="username" name="user" required><br>
+  	<label for="pass">Password</label><br>
+  	<input type="Password" id="password" name="pass" required><br>
+  	<a href="/profile.html"><input type="submit" value="Sign In" class="submit"></a><br>
+  	Dont have an account? <a href="/signup">Sign Up Here</a>
+</form> 
+
+</div>
+
+</body>
+</html>
