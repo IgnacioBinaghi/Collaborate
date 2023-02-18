@@ -1,4 +1,4 @@
-from ppio import push
+import ppio
 
 name = input("Enter Name: ")
 age = input("Enter Age: ")
@@ -12,10 +12,21 @@ socials["discord"] = input("Enter Discord username: ")
 area = []
 response = ""
 while (response != "done"):
-    response: input("Enter Area (type 'done' when done): ")
-    area.append(response)
-courses = input("Enter Courses")
-topics = input("Enter Topics")
+    response = input("Enter Area (type 'done' when done): ")
+    if(response != "done"):
+        area.append(response)
+courses = []
+response = ""
+while (response != "done"):
+    response = input("Enter Courses: (type 'done' when done): ")
+    if(response != "done"):
+        courses.append(response)
+topics = []
+response = ""
+while (response != "done"):
+    response = input("Enter Topics: (type 'done' when done): ")
+    if(response != "done"):
+        topics.append(response)
 bio = input("Enter Bio")
 username = input("Enter Username: ")
 password = input("Enter Pass: ")
@@ -36,4 +47,4 @@ temp_user = {
             "likedby": likedby
 }
 
-push.push_to_db(temp_user)
+ppio.push.push_to_db(temp_user)
