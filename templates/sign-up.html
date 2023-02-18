@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/sign-up-style.css') }}"/>
+	<title>sign up</title>
+</head>
+<body>
+
+<div class="box">
+<form class="signin" method="post" action="{{ url_for('signup')}}">
+	<label for="name">Name</label><br>
+  	<input type="text" id="Name" name="Name" required><br>
+  	<label for="user">Username</label><br>
+  	<input type="text" id="username" name="user" required><br>
+  	<label for="pass">Password</label><br>
+  	<input type="Password" id="password" name="pass" required><br>
+
+  	<label for="year">Year</label>
+  	<select name="year" id="year" required>
+			<option value="fresh">Freshman</option>
+		    <option value="soph">Sophomore</option>
+		    <option value="junior">Junior</option>
+		    <option value="senior">Senior</option>
+		</select><br>
+
+
+
+  	<label for="school">School</label>
+		<select name="school" id="school" required>
+			<option value="nyu">NYU</option>
+		    <option value="nyu1">NYU2</option>
+		    <option value="nyu2">NYU3</option>
+		</select><br>
+
+
+	<label for="sex">Sex</label>
+		<select name="sex" id="sex" required>
+			<option value="male">Male</option>
+		    <option value="female">Female</option>
+		    <option value="other">Other</option>
+		</select><br>
+
+
+	<label for="insta">Instagram Username</label><br>
+  	<input type="text" id="insta" name="insta"><br>
+
+
+
+  	<input type="submit" value="Sign Up" class="submit" href="/profile"><br>
+
+
+
+
+</form> 
+
+</div>
+
+</body>
+</html>
