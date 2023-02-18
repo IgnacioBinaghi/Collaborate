@@ -1,7 +1,7 @@
 """
 This file provides basic operations for getting the database and collection
 Isaac
-""""
+"""
 from pymongo import MongoClient
 import certifi
 

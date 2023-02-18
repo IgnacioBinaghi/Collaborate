@@ -1,19 +1,25 @@
 # Controls all push functions to the database
 from pymongo import MongoClient
+from basic import get_collection
 import certifi
 
 
-def get_database():
 
-   ca = certifi.where()
-   client = MongoClient("mongodb+srv://isaacfisher:9yqMyqfX1AlJ2p5x@collaborate.szhuyon.mongodb.net/?retryWrites=true&w=majority", tlsCAFile=ca)
- 
-   # Create the database for our example (we will use the same database throughout the tutorial
-   return client['collaborate']
-  
-# This is added so that many files can reuse the function get_database()
-if __name__ == "__main__":   
-  
-   # Get the database
-   dbname = get_database()
-   print(dbname)
+"""
+user_template = {
+  "_id" : "1",
+  "name" : "John Doe",
+  "age" : "19",
+  "year" : "2",
+  "school" : "NYU",
+  "socials" : ["twitter.com"],
+  "Area" : ["Brooklyn", "Manhattan"],
+  "courses": "CSO",
+  "topics": "Calculus",
+  "bio": "sex? pls",
+  "user": "username",
+  "pass": "password",
+  "likedby": ["you"]
+}
+get_collection().insert_one(user_template)
+"""
