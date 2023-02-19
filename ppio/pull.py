@@ -11,7 +11,7 @@ def login(username, password):
 	else:
 		with open("resources/id.txt", "w") as w:
 			w.write(user["_id"])
-			return True
+		return True
 
 def have_liked_by():
 	with open("resources/id.txt", "r") as r:
@@ -34,6 +34,9 @@ def pull_liked_by():
 	print(type(userLikedByList))
 	myquery = {"_id" : str(userID)}
 	newvalues = { "$set" : {"likedby" : userLikedByList}}
-	collection.update_one(myquery, newvalues)
+	get_collection().update_one(myquery, newvalues)
 	# lastElement = 
 	return lastElement
+
+def get_user(id):
+	return get_collection().find_one({"_id": id})
