@@ -37,3 +37,6 @@ def pull_liked_by():
 	get_collection().update_one(myquery, newvalues)
 	# lastElement = 
 	return lastElement
+
+def get_user(id):
+	return get_collection().find_one({"_id": id})
