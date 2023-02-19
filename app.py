@@ -72,15 +72,22 @@ def profile():
         user_info = get_user(r.readline())
 
 
-    return render_template('profile.html', bio = user_info["bio"], name = user_info["name"], year = user_info["year"], school = user_info["school"],
+    return render_template('profile.html', bio = user_info["bio"], name = user_info["name"], year = user_info["year"], insta = user_info["socials"], school = user_info["school"],
         courses = user_info["courses"], topics = user_info["topics"], area = user_info["Area"])
 
 
 @app.route('/match', methods=['GET', 'POST'])
 def match():
-    user_info = get_user(next_rand_user())
+    if have_liked_by():
+        user_info = get_user(pull_liked_by())
+        match = True
+    else:
+        user_info = get_user(next_rand_user())
+        match = False
+
     with open("resources/last.txt", "w") as w:
-        w.write(user_info["_id"])
+        w.write(user_info["_id"] + "\n")
+        w.write(str(match))
 
 
     return render_template('match.html', bio = user_info["bio"], name = user_info["name"], year = user_info["year"], school = user_info["school"], insta = user_info["socials"],
@@ -90,13 +97,25 @@ def match():
 @app.route('/match_yes')
 def match_yes():
     with open("resources/last.txt", "r") as r:
-        last_id = r.readline()
-        print(get_user(last_id)["name"])
-        push_like_to(last_id)
+        last_id = r.readline().strip()
+        match = r.readline().strip()
+        if match == "True":
+            push_match_to(last_id)
+            print("match: ", (get_user(last_id)["name"]))
+        else:
+            push_like_to(last_id)
+            print("like: ", (get_user(last_id)["name"]))
     return redirect(url_for('match'))
 
 
-
+@app.route('/connections', methods=['GET', 'POST'])
+def connections():
+    data = []
+    curr = current_user()
+    for user in get_user(curr)["matches"]:
+        user = get_user(user)
+        data.append((user["name"], user["socials"]))
+    return render_template('connections.html', data=data)
 
 @app.route('/edit', methods=['GET', 'POST'])
 def edit():
@@ -126,4 +145,4 @@ def edit():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)

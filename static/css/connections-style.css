@@ -13,18 +13,6 @@ body{
 	background-color: #E8D2AE;
 }
 
-.profile{
-	color: #CB8589;
-	font-family: Alegreya-thin;
-	  position: absolute;
-	  left: 60%;
-	  top: 45%;
-	  -webkit-transform: translate(-50%, -50%);
-	  transform: translate(-50%, -50%);
-    font-size: 200%;
-    width: 70%;
- }
-
  .toolbar{
 	background-color: #B1BA95;
 	position: fixed;
@@ -50,28 +38,22 @@ body{
 	color: white;
 	transition: .5s;
 }
-.buttons button {
-	background: none;
-	margin-left: 16%;
-	border-radius: 25px;
-	border: none;
-}
-.buttons img{
-	height: 135px;
-	bottom: 0;
-	transition: .5s;
-}
 
-.buttons img:hover{
-	height: 165px;
-	bottom: 0;
-	transition: .5s;
+.user{
+	border: solid .1px #B1BA95;
+	width: 90%;
+	margin-top:5%;
+	margin-left: 5%;
+	display: flex;
+	border-radius: 10px;
+	margin-bottom: 5%;
+}
+.insta{
+	margin-left: auto;
 }
 
-.button:hover{
-	background-color: #A9B18F;
-	transition: .1s;
+.user h1{
+	font-family: Alegreya-thin;
+	color: #CB8589;
+	padding: 20px;
 }
-
-
-
