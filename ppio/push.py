@@ -28,3 +28,14 @@ def push_like_to(user_id):
 	query = {"_id": user_id}
 	newvalue = {"$push": {"likedby": current_user()}}
 	get_collection().update_one(query, newvalue)
+
+def push_match_to(user_id):
+	# Pushes the current user to the current and given user's matches list
+	curr_user = current_user()
+	collection = get_collection()
+	query = {"_id": user_id}
+	newvalue = {"$push": {"matches": curr_user}}
+	collection.update_one(query, newvalue)
+	query = {"_id": curr_user}
+	newvalue = {"$push": {"matches": user_id}}
+	collection.update_one(query, newvalue)
