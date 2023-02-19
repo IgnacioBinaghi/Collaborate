@@ -9,7 +9,7 @@ import time
 
 def current_user():
 	# Returns id of the current user from resources/id.txt
-	with open("../resources/id.txt", "r") as r:
+	with open("resources/id.txt", "r") as r:
 		return r.readline()
 
 def push_to_db(user):
