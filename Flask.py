@@ -1,7 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from ppio.push import push_to_db
 from ppio.pull import login
-
 
 app = Flask(__name__)
 
@@ -13,15 +12,13 @@ def home():
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
     if request.method == "POST":
+        username = request.form.get("user")
+        password = request.form.get("pass")
 
-       username = request.form.get("user")
-
-       password = request.form.get("pass")
-
-
-
-       print(login(username, password))
-
+        if login(username, password) == False:
+            redirect(url_for('signin'))
+        elif login(username, password) == True:
+            redirect(url_for('profile'))
 
     return render_template('sign-in.html')
 
