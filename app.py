@@ -115,7 +115,10 @@ def connections():
     for user in get_user(curr)["matches"]:
         user = get_user(user)
         data.append((user["name"], user["socials"]))
+
+
     return render_template('connections.html', data=data)
+
 
 @app.route('/edit', methods=['GET', 'POST'])
 def edit():
