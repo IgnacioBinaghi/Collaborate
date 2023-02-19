@@ -43,50 +43,29 @@ def push_match_to(user_id):
 def update_courses(courses):
 	# Pushes the courses to the currents users course string
 	query = {"_id": current_user()}
-<<<<<<< HEAD
-	newvalue = {"$push": {"courses": courses}}
-=======
 	newvalue = {"$set": {"courses": courses}}
->>>>>>> 47d5928afa2c4b5efc4d4fc1f6951645445b0736
 	get_collection().update_one(query, newvalue)
 
 def update_topics(topics):
 	# Pushes the topics to the current user's topics string
 	query = {"_id": current_user()}
-<<<<<<< HEAD
-	newvalue = {"$push": {"topics": topics}}
-=======
 	newvalue = {"$set": {"topics": topics}}
->>>>>>> 47d5928afa2c4b5efc4d4fc1f6951645445b0736
 	get_collection().update_one(query, newvalue)
 
 def update_area(area):
 	# Pushes the area to the given user's area string
 	query = {"_id": current_user()}
-<<<<<<< HEAD
-	newvalue = {"$push": {"Area": area}}
-=======
 	newvalue = {"$set": {"Area": area}}
->>>>>>> 47d5928afa2c4b5efc4d4fc1f6951645445b0736
 	get_collection().update_one(query, newvalue)
 
 def update_bio(bio):
 	# Pushes the bio to the given user's bio string
 	query = {"_id": current_user()}
-<<<<<<< HEAD
-	newvalue = {"$push": {"bio": bio}}
-=======
 	newvalue = {"$set": {"bio": bio}}
->>>>>>> 47d5928afa2c4b5efc4d4fc1f6951645445b0736
 	get_collection().update_one(query, newvalue)
 
 def update_insta(insta):
 	# Pushes the current user to the given user's LikedBy list
 	query = {"_id": current_user()}
-<<<<<<< HEAD
-	newvalue = {"$push": {"socials": insta}}
-	get_collection().update_one(query, newvalue)
-=======
 	newvalue = {"$set": {"socials": insta}}
 	get_collection().update_one(query, newvalue)
->>>>>>> 47d5928afa2c4b5efc4d4fc1f6951645445b0736
