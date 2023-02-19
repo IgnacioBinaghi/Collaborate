@@ -17,5 +17,6 @@ Once all files are downloaded, navigate to your file using your command line and
 ```
 pip install -r requirements.text
 ```
+Then, run the app.py file and you're all set!
 
 Program produced in HackNYU by Sho Ishizaki, Isaac Fisher, Ignacio Binaghi, and Kyle Wang.
