@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for, flash
 from ppio.push import push_to_db
 from ppio.pull import login
 
 app = Flask(__name__)
+app.secret_key = 'fartbruh'
 
 @app.route('/')
 def home():
@@ -15,10 +16,12 @@ def signin():
         username = request.form.get("user")
         password = request.form.get("pass")
 
-        if login(username, password) == False:
-            redirect(url_for('signin'))
-        elif login(username, password) == True:
-            redirect(url_for('profile'))
+        print(login(username, password))
+
+        if login(username, password) == True:
+            return redirect(url_for('profile'))
+        else:
+            flash('Your username or password is incorrect')
 
     return render_template('sign-in.html')
 
@@ -58,7 +61,7 @@ def signup():
 
 
         push_to_db(user_template)
-
+        redirect('/profile')
 
     return render_template('sign-up.html')
 
