@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from ppio.push import push_to_db
-from ppio.pull import login
+from ppio.push import *
+from ppio.pull import *
+from ppio.random_pull import *
 
 app = Flask(__name__)
-app.secret_key = 'fartbruh'
+app.secret_key = 'key'
 
 @app.route('/')
 def home():
@@ -50,25 +51,76 @@ def signup():
               "year" : year,
               "school" : school,
               "socials" : insta,
-              "Area" : [""],
+              "Area" : "",
               "courses": "",
               "topics": "",
               "bio": "",
               "user": username,
-              "pass": password,
-              "likedby": [""]
+              "pass": password
         }
 
 
         push_to_db(user_template)
-        redirect('/profile')
+        return redirect(url_for('profile'))
 
     return render_template('sign-up.html')
 
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
-    return render_template('profile.html')
+    with open("resources/id.txt", "r") as r:
+        user_info = get_user(r.readline())
+
+
+    return render_template('profile.html', bio = user_info["bio"], name = user_info["name"], year = user_info["year"], school = user_info["school"],
+        courses = user_info["courses"], topics = user_info["topics"], area = user_info["Area"])
+
+
+@app.route('/match', methods=['GET', 'POST'])
+def match():
+    user_info = get_user(next_rand_user())
+    with open("resources/last.txt", "w") as w:
+        w.write(user_info["_id"])
+
+
+    return render_template('match.html', bio = user_info["bio"], name = user_info["name"], year = user_info["year"], school = user_info["school"], insta = user_info["socials"],
+        courses = user_info["courses"], topics = user_info["topics"], area = user_info["Area"])
+
+
+@app.route('/match_yes')
+def match_yes():
+    with open("resources/last.txt", "r") as r:
+        last_id = r.readline()
+        print(get_user(last_id)["name"])
+        push_like_to(last_id)
+    return redirect(url_for('match'))
+
+
+
+
+@app.route('/edit', methods=['GET', 'POST'])
+def edit():
+    if request.method == "POST":
+        bio = request.form.get("bio")
+        area = request.form.get("area")
+        topics = request.form.get("topics")
+        courses = request.form.get("courses")
+        insta= request.form.get("insta")
+
+        if courses:
+            update_courses(courses)
+        if topics:
+            update_topics(topics)
+        if area:
+            update_area(area)
+        if bio:
+            update_bio(bio)
+        if insta:
+            update_insta(insta)
+
+
+        return redirect(url_for('profile'))
+    return render_template('edit_account.html')
 
 
 

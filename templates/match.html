@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Match</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/match.css') }}">
+</head>
+<body>
+
+	<div class="toolbar">
+	<a href="/">Sign Out</a>
+	<a href="/connections">Connections</a>
+	<a href="/profile">Profile</a>
+</div>
+
+
+<div class = "profile">
+	<h1>Your New Study Buddy,<br> {{name}}?</h1>
+	 <ul>
+	 	<li>Bio: {{bio}}</li>
+		  <li>Year: {{year}}</li>
+		  <li>School: {{school}}</li>
+		  <li>Courses: {{courses}}</li>
+		  <li>Topics: {{topics}}</li>
+		  <li>Area: {{area}}</li>
+
+	</ul> 
+	<div class = "buttons">
+
+		<a href="/match_yes"><img src="{{ url_for('static', filename= 'images/yeth.png') }}"></a>
+
+
+		<button onClick="window.location.reload();"><img src="{{ url_for('static', filename= 'images/no.png') }}"></button>
+	</div>
+</div>
+
+</body>
+</html>

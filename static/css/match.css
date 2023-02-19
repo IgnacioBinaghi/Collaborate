@@ -1,0 +1,77 @@
+@font-face {
+  font-family: Alegreya;
+  src: url(../fonts/Alegreya-Medium.ttf);
+}
+
+@font-face {
+  font-family: Alegreya-thin;
+  src: url(../fonts/Alegreya-regular.ttf);
+}
+
+
+body{
+	background-color: #E8D2AE;
+}
+
+.profile{
+	color: #CB8589;
+	font-family: Alegreya-thin;
+	  position: absolute;
+	  left: 60%;
+	  top: 45%;
+	  -webkit-transform: translate(-50%, -50%);
+	  transform: translate(-50%, -50%);
+    font-size: 200%;
+    width: 70%;
+ }
+
+ .toolbar{
+	background-color: #B1BA95;
+	position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100% !important;
+    font-family: Alegreya;
+}
+
+
+.toolbar a{
+	color: #305252;
+	transition: .5s;
+	float: right;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+.toolbar a:hover{
+	color: white;
+	transition: .5s;
+}
+.buttons button {
+	background: none;
+	margin-left: 16%;
+	border-radius: 25px;
+	border: none;
+}
+.buttons img{
+	height: 135px;
+	bottom: 0;
+	transition: .5s;
+}
+
+.buttons img:hover{
+	height: 165px;
+	bottom: 0;
+	transition: .5s;
+}
+
+.button:hover{
+	background-color: #A9B18F;
+	transition: .1s;
+}
+
+
+
