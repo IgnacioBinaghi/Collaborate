@@ -78,9 +78,16 @@ def profile():
 
 @app.route('/match', methods=['GET', 'POST'])
 def match():
-    user_info = get_user(next_rand_user())
+    if have_liked_by():
+        user_info = get_user(pull_liked_by())
+        match = True
+    else:
+        user_info = get_user(next_rand_user())
+        match = False
+
     with open("resources/last.txt", "w") as w:
-        w.write(user_info["_id"])
+        w.write(user_info["_id"] + "\n")
+        w.write(str(match))
 
 
     return render_template('match.html', bio = user_info["bio"], name = user_info["name"], year = user_info["year"], school = user_info["school"], insta = user_info["socials"],
@@ -90,9 +97,14 @@ def match():
 @app.route('/match_yes')
 def match_yes():
     with open("resources/last.txt", "r") as r:
-        last_id = r.readline()
-        print(get_user(last_id)["name"])
-        push_like_to(last_id)
+        last_id = r.readline().strip()
+        match = r.readline().strip()
+        if match == "True":
+            push_match_to(last_id)
+            print("match: ", (get_user(last_id)["name"]))
+        else:
+            push_like_to(last_id)
+            print("like: ", (get_user(last_id)["name"]))
     return redirect(url_for('match'))
 
 

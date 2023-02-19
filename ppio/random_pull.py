@@ -1,5 +1,6 @@
 # A generator that will return the next random user
 from .basic import get_collection
+from .push import current_user
 from random import shuffle
 import json
 
@@ -30,5 +31,8 @@ def next_rand_user():
 
 	with open("resources/rand.json", "w") as w:
 		json.dump(data, w, indent=4)
+
+	if (result == current_user()):
+		return next_rand_user()
 
 	return result
