@@ -11,4 +11,11 @@
  
 Features a fully functioning sign-up, sign-in, and matching system that connects you with likeminded peers.
 
+# Requirements
+
+Once all files are downloaded, navigate to your file using your command line and enter:
+```
+pip install -r requirements.text
+```
+
 Program produced in HackNYU by Sho Ishizaki, Isaac Fisher, Ignacio Binaghi, and Kyle Wang.
