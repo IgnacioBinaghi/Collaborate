@@ -38,9 +38,6 @@ def push_match_to(user_id):
 	collection.update_one(query, newvalue)
 	query = {"_id": curr_user}
 	newvalue = {"$push": {"matches": user_id}}
-<<<<<<< Updated upstream
-	collection.update_one(query, newvalue)
-=======
 	collection.update_one(query, newvalue)
 
 def update_courses(courses):
@@ -72,4 +69,3 @@ def update_insta(insta):
 	query = {"_id": current_user()}
 	newvalue = {"$push": {"socials": insta}}
 	get_collection().update_one(query, newvalue)
->>>>>>> Stashed changes
