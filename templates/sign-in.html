@@ -16,6 +16,13 @@
   	<input type="Password" id="password" name="pass" required><br>
   	<a href="/profile.html"><input type="submit" value="Sign In" class="submit"></a><br>
   	Dont have an account? <a href="/signup">Sign Up Here</a>
+  	{% with messages = get_flashed_messages() %}  
+         {% if messages %}  
+               {% for message in messages %}  
+                    <p>{{ message }}</p>  
+               {% endfor %}  
+         {% endif %}  
+      {% endwith %}
 </form> 
 
 </div>
