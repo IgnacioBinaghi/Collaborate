@@ -39,3 +39,27 @@ def push_match_to(user_id):
 	query = {"_id": curr_user}
 	newvalue = {"$push": {"matches": user_id}}
 	collection.update_one(query, newvalue)
+
+def update_courses(courses):
+	# Pushes the courses to the currents users course string
+	query = {"_id": current_user()}
+	newvalue = {"$push": {"courses": courses}}
+	get_collection().update_one(query, newvalue)
+
+def update_topics(topics):
+	# Pushes the topics to the current user's topics string
+	query = {"_id": current_user()}
+	newvalue = {"$push": {"topics": topics}}
+	get_collection().update_one(query, newvalue)
+
+def update_area(area):
+	# Pushes the area to the given user's area string
+	query = {"_id": current_user()}
+	newvalue = {"$push": {"Area": area}}
+	get_collection().update_one(query, newvalue)
+
+def update_bio(bio):
+	# Pushes the bio to the given user's bio string
+	query = {"_id": current_user()}
+	newvalue = {"$push": {"bio": bio}}
+	get_collection().update_one(query, newvalue)
