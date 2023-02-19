@@ -4,8 +4,33 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Profile</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/profile-style.css') }}">
 </head>
 <body>
-<div>Lmaooooo</div>
+<div class="toolbar">
+	<a href="/">Sign Out</a>
+	<a href="/connections">Connections</a>
+	<a href="/match">Match</a>
+</div>
+
+
+<div class = "profile">
+	<h1>You.</h1>
+	 <ul>
+	 	<li>Bio: {{bio}}</li>
+		  <li>Name:   {{name}}</li>
+		  <li>Year:   {{year}}</li>
+		  <li>School:   {{school}}</li>
+		  <li>Instagram:   {{insta}}</li>
+		  <li>Courses:    {{courses}}</li>
+		  <li>Topics: {{topics}}</li>
+		  <li>Area: {{area}}</li>
+	</ul> 
+	<div class="edit">
+	<a href="/edit" class = "button">Edit Profile</a>
+</div>
+</div>
+
+
 </body>
 </html>

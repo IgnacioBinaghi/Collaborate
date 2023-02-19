@@ -4,31 +4,34 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Match</title>
-	<link rel="stylesheet" type="text/css" href="match.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/match.css') }}">
 </head>
 <body>
 
 	<div class="toolbar">
-	<a href="/home">Sign Out</a>
-	<a href="connections.html">Connections</a>
-	<a href="profile.html">Profile</a>
+	<a href="/">Sign Out</a>
+	<a href="/connections">Connections</a>
+	<a href="/profile">Profile</a>
 </div>
 
 
 <div class = "profile">
-	<h1>Your New Study Buddy,<br> {{match_name}}?</h1>
+	<h1>Your New Study Buddy,<br> {{name}}?</h1>
 	 <ul>
-	 	<li>{{match_bio}}</li>
-		  <li>{{match_year}}</li>
-		  <li>{{match_school}}</li>
-		  <li>{{match_courses}}</li>
-		  <li>{{match_topics}}</li>
-		  <li>{{match_area}}</li>
+	 	<li>Bio: {{bio}}</li>
+		  <li>Year: {{year}}</li>
+		  <li>School: {{school}}</li>
+		  <li>Courses: {{courses}}</li>
+		  <li>Topics: {{topics}}</li>
+		  <li>Area: {{area}}</li>
 
 	</ul> 
 	<div class = "buttons">
-		<button><img src="yeth.png"></button>
-		<button><img src="no.png"></button>
+
+		<a href="/match_yes"><img src="{{ url_for('static', filename= 'images/yeth.png') }}"></a>
+
+
+		<button onClick="window.location.reload();"><img src="{{ url_for('static', filename= 'images/no.png') }}"></button>
 	</div>
 </div>
 

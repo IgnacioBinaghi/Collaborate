@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="edit.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/edit.css') }}">
 	<title>Edit Profile</title>
 </head>
 <body>
@@ -19,8 +19,6 @@
   	<input type="text" id="topics" name="topics"><br>
   	<label for="bio">Bio</label><br>
   	<textarea type="text" id="bio" name="bio"></textarea><br>
-
-
 	<label for="insta">Instagram Username</label><br>
   	<input type="text" id="insta" name="insta"><br>
 
