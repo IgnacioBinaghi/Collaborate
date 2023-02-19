@@ -19,4 +19,4 @@ pip install -r requirements.text
 ```
 Then, run the app.py file and you're all set!
 
-Program produced in HackNYU by Sho Ishizaki, Isaac Fisher, Ignacio Binaghi, and Kyle Wang.
+###### Program produced in HackNYU by Sho Ishizaki, Isaac Fisher, Ignacio Binaghi, and Kyle Wang. ######
