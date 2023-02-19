@@ -72,7 +72,7 @@ def profile():
         user_info = get_user(r.readline())
 
 
-    return render_template('profile.html', bio = user_info["bio"], name = user_info["name"], year = user_info["year"], school = user_info["school"],
+    return render_template('profile.html', bio = user_info["bio"], name = user_info["name"], year = user_info["year"], insta = user_info["socials"], school = user_info["school"],
         courses = user_info["courses"], topics = user_info["topics"], area = user_info["Area"])
 
 
@@ -108,7 +108,14 @@ def match_yes():
     return redirect(url_for('match'))
 
 
-
+@app.route('/connections', methods=['GET', 'POST'])
+def connections():
+    data = []
+    curr = current_user()
+    for user in get_user(curr)["matches"]:
+        user = get_user(user)
+        data.append((user["name"], user["socials"]))
+    return render_template('connections.html', data=data)
 
 @app.route('/edit', methods=['GET', 'POST'])
 def edit():
@@ -138,4 +145,4 @@ def edit():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
