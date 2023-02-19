@@ -3,7 +3,7 @@ from ppio.push import push_to_db
 from ppio.pull import login
 
 app = Flask(__name__)
-app.secret_key = 'fartbruh'
+app.secret_key = 'key'
 
 @app.route('/')
 def home():
@@ -61,7 +61,7 @@ def signup():
 
 
         push_to_db(user_template)
-        redirect('/profile')
+        return redirect(url_for('profile'))
 
     return render_template('sign-up.html')
 
