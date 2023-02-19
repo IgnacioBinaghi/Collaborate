@@ -34,6 +34,6 @@ def pull_liked_by():
 	print(type(userLikedByList))
 	myquery = {"_id" : str(userID)}
 	newvalues = { "$set" : {"likedby" : userLikedByList}}
-	collection.update_one(myquery, newvalues)
+	get_collection().update_one(myquery, newvalues)
 	# lastElement = 
 	return lastElement
