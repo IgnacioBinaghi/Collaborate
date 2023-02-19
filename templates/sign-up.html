@@ -9,7 +9,7 @@
 <body>
 
 <div class="box">
-<form class="signin" method="post" action="/profile">
+<form class="signin" method="post" action="{{ url_for('signup')}}">
 	<label for="name">Name</label><br>
   	<input type="text" id="Name" name="Name" required><br>
   	<label for="user">Username</label><br>
